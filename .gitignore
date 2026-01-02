@@ -1,0 +1,37 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+# Compiled Files
+*.class
+*.pyc
+*.pyo
+__pycache__/
+build/
+dist/
+*.egg-info/
+# Dependencies
+node_modules/
+venv/
+env/
+*.jar
+# Environment Files
+.env
+.env.local
+*.log
+# Temporary Files
+tmp/
+temp/
+*.tmp
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
+# Config Files with Secrets
+config/secrets.yml
+config/database.yml
