@@ -7,11 +7,20 @@ public class StockMedicamento {
     private int quantidade_atual;
     private LocalDateTime updated_at;
 
-    public boolean alterarQuantidade(boolean aumentarStock, int quant) {
+    /* GETTERS */
+    
+    public int getId_medicamento() { return id_medicamento; }
 
-        if(aumentarStock) {
-            this.quantidade_atual += quant
-        }
-        return true;
-    }
+    public int getQuantidade_atual() { return quantidade_atual; }
+
+    public LocalDateTime getUpdated_at() { return updated_at; }
+
+    /* SETTERS */
+
+    public void setId_medicamento(int id_medicamento) { this.id_medicamento = id_medicamento; }
+
+    public void setQuantidade_atual(int quantidade_atual) { this.quantidade_atual = quantidade_atual; }
+
+    public void setUpdated_at(LocalDateTime updated_at) { this.updated_at = updated_at; }
+
 }

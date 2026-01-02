@@ -9,4 +9,26 @@ public class TipoConsulta {
     private float valor_base;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
+
+    /* GETTERS */
+    
+    public int getId_tipo_consulta() { return id_tipo_consulta; }
+
+    public String getDescricao_tipo_consulta() { return descricao_tipo_consulta; }
+
+    public int getDuracao_media() { return duracao_media; }
+
+    public float getValor_base() { return valor_base; }
+
+    /* SETTERS */
+
+    public void setId_tipo_consulta(int id_tipo_consulta) { this.id_tipo_consulta = id_tipo_consulta; }
+
+    public void setDescricao_tipo_consulta(String descricao_tipo_consulta) { 
+        this.descricao_tipo_consulta = descricao_tipo_consulta; 
+    }
+
+    public void setDuracao_media(int duracao_media) { this.duracao_media = duracao_media; }
+
+    public void setDescricao_relatorio(float valor_base) { this.valor_base = valor_base; }
 }

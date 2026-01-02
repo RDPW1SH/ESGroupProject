@@ -12,10 +12,14 @@ public class Paciente {
     private String genero_paciente;
     private int contacto_telemovel;
     private String morada_paciente;
-    private SeguroSaude seguro_paciente;
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 
+    public Paciente() {
+        this.created_at = LocalDateTime.now();
+        this.updated_at = LocalDateTime.now();
+    }
+    
     /* GETTERS */
 
     public int getId_paciente() {return id_paciente;}
@@ -29,8 +33,6 @@ public class Paciente {
     public int getContacto_telemovel() {return contacto_telemovel;}
 
     public String getMorada_paciente() {return morada_paciente;}
-
-    public SeguroSaude getSeguro_paciente() {return seguro_paciente;}
 
     public LocalDateTime getCreated_at() {return created_at;}
 
@@ -49,8 +51,6 @@ public class Paciente {
     public void setContacto_telemovel(int contacto_telemovel) {this.contacto_telemovel = contacto_telemovel;}
 
     public void setMorada_paciente(String morada_paciente) {this.morada_paciente = morada_paciente;}
-
-    public void setSeguro_paciente(SeguroSaude seguro_paciente) {this.seguro_paciente = seguro_paciente;}
 
     public void setCreated_at(LocalDateTime created_at) {this.created_at = created_at;}
 
