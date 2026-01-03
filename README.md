@@ -8,12 +8,10 @@ O seguinte README.md explica como clonar, configurar e executar o projeto nas ID
 
 ## Pré-requisitos
 
-Certifica-te de que tens:
-
 - Java JDK 11+ instalado (`java -version` no terminal)
 - Git instalado (`git --version`)
 - IDE ou editor de código:
-  - Eclipse IDE for Java Developers (2022-12 ou superior recomendado)
+  - Eclipse IDE for Java Developers 
   - VS Code com extensão **Java Extension Pack**
 - Opcional: GitHub Desktop
 
