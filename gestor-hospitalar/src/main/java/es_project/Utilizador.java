@@ -15,6 +15,7 @@ public class Utilizador {
     /* CONSTRUTOR */
 
     public Utilizador() {
+        this.created_at = LocalDateTime.now();
         this.updated_at = LocalDateTime.now();
     }
 
