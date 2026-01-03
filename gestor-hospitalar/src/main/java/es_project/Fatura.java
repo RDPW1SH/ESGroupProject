@@ -12,6 +12,13 @@ public class Fatura {
     private LocalDateTime created_at;
     private LocalDateTime updated_at;
 
+    /* CONSTRUTOR */
+
+    public Fatura() {
+        this.created_at = LocalDateTime.now();
+        this.updated_at = LocalDateTime.now();
+    }
+
     /* GETTERS */
     
     public int getId_fatura() { return id_fatura; }
@@ -32,21 +39,25 @@ public class Fatura {
 
     /* SETTERS */
 
-    public void setId_fatura(int id_fatura) { this.id_fatura = id_fatura; }
+    public void setId_fatura(int id_fatura) { this.id_fatura = id_fatura; setUpdated_at();}
 
-    public void setId_consulta(int id_consulta) { this.id_consulta = id_consulta; }
+    public void setId_consulta(int id_consulta) { this.id_consulta = id_consulta; setUpdated_at();}
 
-    public void setValor_base(float valor_base) { this.valor_base = valor_base; }
+    public void setValor_base(float valor_base) { this.valor_base = valor_base; setUpdated_at();}
 
-    public void setValor_seguro(float valor_seguro) { this.valor_seguro = valor_seguro; }
+    public void setValor_seguro(float valor_seguro) { this.valor_seguro = valor_seguro; setUpdated_at();}
 
-    public void setValor_total(float valor_total) { this.valor_total = valor_total; }
+    public void setValor_total(float valor_total) { this.valor_total = valor_total; setUpdated_at();}
 
-    public void setEstado_fatura(float estado_fatura) { this.estado_fatura = estado_fatura; }
+    public void setEstado_fatura(float estado_fatura) { this.estado_fatura = estado_fatura; setUpdated_at(); }
 
-    public void setCreated_at(LocalDateTime created_at) { this.created_at = created_at; }
+    public void setUpdated_at() { 
+        this.updated_at = LocalDateTime.now(); 
+    }
 
-    public void setUpdated_at(LocalDateTime updated_at) { this.updated_at = updated_at; }
+    public void setCreated_at(LocalDateTime created_at) { 
+        this.created_at = created_at; 
+    }
 
     /* METODOS */
 

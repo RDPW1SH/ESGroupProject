@@ -20,5 +20,5 @@ public class AtendimentoUrgencia {
 
     /* METODOS */
 
-    public void alterarEstadoSala(int salaId) {}
+    public void alterarEstadoSala() {}
 }

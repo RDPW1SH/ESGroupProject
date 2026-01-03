@@ -21,6 +21,8 @@ public class StockMedicamento {
 
     public void setQuantidade_atual(int quantidade_atual) { this.quantidade_atual = quantidade_atual; }
 
-    public void setUpdated_at(LocalDateTime updated_at) { this.updated_at = updated_at; }
+    public void setUpdated_at() { this.updated_at = LocalDateTime.now(); }
+
+    
 
 }
