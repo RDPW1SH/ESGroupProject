@@ -1,10 +1,11 @@
-package es_project;
+package es_project.model;
 
 import java.time.LocalDateTime;
 
 public class Exame {
     private int id_exame;
     private int id_tipo_exame;
+    private int id_consulta;
     private LocalDateTime data_pedido;
     private LocalDateTime data_realizado;
     private LocalDateTime data_resultado;
@@ -28,6 +29,10 @@ public class Exame {
 
     public int getId_tipo_exame() {
         return id_tipo_exame;
+    }
+
+    public int getId_consulta() {
+        return id_consulta;
     }
 
     public LocalDateTime getData_pedido() {
@@ -67,6 +72,11 @@ public class Exame {
 
     public void setId_tipo_exame(int id_tipo_exame) {
         this.id_tipo_exame = id_tipo_exame;
+        setUpdated_at();
+    }
+
+    public void setId_consulta(int id_consulta) {
+        this.id_consulta = id_consulta;
         setUpdated_at();
     }
 

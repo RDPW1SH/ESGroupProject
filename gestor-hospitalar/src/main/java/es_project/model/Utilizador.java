@@ -1,9 +1,10 @@
-package es_project;
+package es_project.model;
 
 import java.time.LocalDateTime;
 
 public class Utilizador {
     private int id_utilizador;
+    private int id_tipo_utilizador;
     private String nome_utilizador;
     private String email_utilizador;
     private int idade_utilizador;
@@ -23,6 +24,10 @@ public class Utilizador {
 
     public int getId_utilizador() {
         return id_utilizador;
+    }
+
+    public int getId_tipo_utilizador() {
+        return id_tipo_utilizador;
     }
 
     public String getNome_utilizador() {
@@ -57,6 +62,11 @@ public class Utilizador {
 
     public void setId_utilizador(int id_utilizador) {
         this.id_utilizador = id_utilizador;
+        setUpdated_at();
+    }
+
+    public void setId_tipo_utilizador(int id_tipo_utilizador) {
+        this.id_tipo_utilizador = id_tipo_utilizador;
         setUpdated_at();
     }
 

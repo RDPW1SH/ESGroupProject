@@ -1,4 +1,4 @@
-package es_project;
+package es_project.model;
 
 public class Farmaceuta extends ProfissionalSaude {
     private String numero_ordem;

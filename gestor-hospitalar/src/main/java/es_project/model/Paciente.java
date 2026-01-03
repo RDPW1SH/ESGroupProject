@@ -1,4 +1,4 @@
-package es_project;
+package es_project.model;
 
 import java.time.LocalDate;
 
@@ -8,7 +8,7 @@ public class Paciente extends Utilizador {
     private int id_seguro;
     private LocalDate data_nascimento;
     private String genero_paciente;
-    private int contacto_telemovel;
+
     private String morada_paciente;
 
     /* GETTERS */
@@ -27,10 +27,6 @@ public class Paciente extends Utilizador {
 
     public String getGenero_paciente() {
         return genero_paciente;
-    }
-
-    public int getContacto_telemovel() {
-        return contacto_telemovel;
     }
 
     public String getMorada_paciente() {
@@ -56,11 +52,6 @@ public class Paciente extends Utilizador {
 
     public void setGenero_paciente(String genero_paciente) {
         this.genero_paciente = genero_paciente;
-        setUpdated_at();
-    }
-
-    public void setContacto_telemovel(int contacto_telemovel) {
-        this.contacto_telemovel = contacto_telemovel;
         setUpdated_at();
     }
 

@@ -1,4 +1,4 @@
-package es_project;
+package es_project.model;
 
 import java.time.LocalDateTime;
 

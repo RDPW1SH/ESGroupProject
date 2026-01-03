@@ -1,4 +1,4 @@
-package es_project;
+package es_project.model;
 
 public class TipoMedicamento {
     private int id_tipo_medicamento;
