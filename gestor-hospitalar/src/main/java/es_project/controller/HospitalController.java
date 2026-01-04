@@ -21,13 +21,12 @@ public class HospitalController {
     public HospitalController() {
 
         ConsultaRepository consultaRepository = new ConsultaRepository();
-        TipoConsultaRepository tipoConsultaRepository = new TipoConsultaRepository();
         ExameRepository exameRepository = new ExameRepository();
         TipoExameRepository tipoExameRepository = new TipoExameRepository();
         FaturaRepository faturaRepository = new FaturaRepository();
         EscalaRepository escalaRepository = new EscalaRepository();
 
-        this.consultaController = new ConsultaController(consultaRepository, tipoConsultaRepository);
+        this.consultaController = new ConsultaController(consultaRepository);
         this.escalaController = new EscalaController(escalaRepository);
         this.faturaController = new FaturaController(faturaRepository);
         this.exameController = new ExameController(exameRepository, tipoExameRepository);
@@ -49,6 +48,10 @@ public class HospitalController {
         consultaController.criarConsulta(consulta);
         notificacoesManager.notificarConsultaConfirmada(consulta.getId_consulta());
         return true;
+    }
+
+    public ArrayList<Consulta> consultarProcessoClinicoPaciente(int idPaciente) {
+        return consultaController.obterConsultasPaciente(idPaciente);
     }
 
     public ArrayList<Consulta> consultarProcessoClinico(int idPaciente) {

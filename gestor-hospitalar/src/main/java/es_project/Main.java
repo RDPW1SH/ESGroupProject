@@ -38,8 +38,8 @@ public class Main {
         paciente1.setIdade_utilizador(30);
         paciente1.setPassword_utilizador("1234");
         paciente1.setTelemovel_utilizador(912345678);
-        paciente1.setId_paciente(101);
-        paciente1.setId_seguro(1001);
+        paciente1.setId_paciente(1);
+        paciente1.setId_seguro(1);
         paciente1.setData_nascimento(LocalDate.of(1993, 6, 12));
         paciente1.setGenero_paciente("Masculino");
         paciente1.setMorada_paciente("Rua Saúde, 10");
@@ -54,7 +54,7 @@ public class Main {
         medico1.setIdade_utilizador(45);
         medico1.setPassword_utilizador("abcd");
         medico1.setTelemovel_utilizador(919876543);
-        medico1.setId_profissional(201);
+        medico1.setId_profissional(1);
         medico1.setProfissional_ativo(true);
         medico1.setNome_especialidade("Cardiologia");
         utilizadores.add(medico1);
@@ -68,7 +68,7 @@ public class Main {
         enfermeiro1.setIdade_utilizador(35);
         enfermeiro1.setPassword_utilizador("enf123");
         enfermeiro1.setTelemovel_utilizador(917654321);
-        enfermeiro1.setId_profissional(301);
+        enfermeiro1.setId_profissional(2);
         enfermeiro1.setProfissional_ativo(true);
         enfermeiro1.setTipo_enfermeiro("Pediátrico");
         utilizadores.add(enfermeiro1);
@@ -82,7 +82,7 @@ public class Main {
         admin1.setIdade_utilizador(40);
         admin1.setPassword_utilizador("admin123");
         admin1.setTelemovel_utilizador(918765432);
-        admin1.setId_profissional(401);
+        admin1.setId_profissional(3);
         admin1.setProfissional_ativo(true);
         admin1.setMotivo_inatividade(null);
         utilizadores.add(admin1);
@@ -96,7 +96,7 @@ public class Main {
         farmaceutico1.setIdade_utilizador(32);
         farmaceutico1.setPassword_utilizador("prof123");
         farmaceutico1.setTelemovel_utilizador(916543210);
-        farmaceutico1.setId_profissional(501);
+        farmaceutico1.setId_profissional(4);
         farmaceutico1.setProfissional_ativo(true);
         utilizadores.add(farmaceutico1);
 
@@ -154,25 +154,24 @@ public class Main {
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             int opcao = Integer.parseInt(sc.nextLine());
+            System.out.println();
 
             switch (opcao) {
                 case 1: {
-                    if (user.getId_tipo_utilizador() != 1)
-                        menuConsultas(h, sc, user.getId_tipo_utilizador());
-                    else
-                        System.out.println("Opção inválida!");
+                    menuConsultas(h, sc, user);
+                    break;
                 }
                 case 2: {
-                    if (user.getId_tipo_utilizador() != 1 && user.getId_tipo_utilizador() != 5)
-                        menuExames(h, sc, user);
-                    else
-                        System.out.println("Opção inválida!");
+
+                    menuExames(h, sc, user);
+                    break;
                 }
                 case 3: {
-                    if (user.getId_tipo_utilizador() == 3 || user.getId_tipo_utilizador() == 4)
+                    if (user.getId_tipo_utilizador() != 1)
                         menuEscalas(h, sc, user);
                     else
                         System.out.println("Opção inválida!");
+                    break;
                 }
                 case 4:
                     menuFaturas(h, sc, user);
@@ -190,24 +189,26 @@ public class Main {
     }
 
     // ====== MENUS ======
-    private static void menuConsultas(HospitalController h, Scanner sc, int tipo) {
+    private static void menuConsultas(HospitalController h, Scanner sc, Utilizador user) {
         System.out.println("\n--- Consultas ---");
-        System.out.println("1. Listar consultas de paciente");
+        System.out.println("1. Consultar as minhas consultas");
         System.out.println("2. Criar nova consulta");
-        System.out.print("Escolha: ");
+        System.out.println("3. Listar consultas de paciente");
+        System.out.print("Selecionar Opção: ");
         int opc = Integer.parseInt(sc.nextLine());
+        System.out.println();
 
         switch (opc) {
             case 1: {
-                System.out.print("ID do paciente: ");
-                int idPaciente = Integer.parseInt(sc.nextLine());
-                ArrayList<Consulta> consultas = h.consultarProcessoClinico(idPaciente);
+
+                ArrayList<Consulta> consultas = h.consultarProcessoClinico(user.getId_utilizador());
                 if (consultas.isEmpty())
                     System.out.println("Nenhuma consulta encontrada.");
                 else
                     consultas.forEach(c -> System.out.println("ID Consulta: " + c.getId_consulta() +
                             ", Médico: " + c.getId_medico() +
                             ", Estado: " + c.getEstado_consulta()));
+                break;
             }
             case 2: {
                 Consulta c = new Consulta();
@@ -224,6 +225,18 @@ public class Main {
                 c.setData_fim(LocalDateTime.now().plusHours(1));
                 h.marcarConsulta(c);
                 System.out.println("Consulta criada com sucesso.");
+                break;
+            }
+            case 3: {
+                System.out.print("ID do paciente: ");
+                int idPaciente = Integer.parseInt(sc.nextLine());
+                ArrayList<Consulta> consultas = h.consultarProcessoClinicoPaciente(idPaciente);
+                if (consultas.isEmpty())
+                    System.out.println("Nenhuma consulta encontrada.");
+                else
+                    consultas.forEach(c -> System.out.println("ID Consulta: " + c.getId_consulta() +
+                            ", Médico: " + c.getId_medico() +
+                            ", Estado: " + c.getEstado_consulta()));
                 break;
             }
             default:
