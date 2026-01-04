@@ -45,4 +45,13 @@ public class PacienteRepository {
         }
         return null;
     }
+
+    public Paciente getPacienteByUserId(int idUser) {
+        for (Paciente p : pacientes) {
+            if (p.getId_paciente() == idUser) {
+                return p;
+            }
+        }
+        return null;
+    }
 }

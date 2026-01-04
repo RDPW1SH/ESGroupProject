@@ -1,7 +1,10 @@
 package es_project.controller;
 
 import es_project.model.Consulta;
+import es_project.model.Paciente;
 import es_project.repository.ConsultaRepository;
+import es_project.repository.PacienteRepository;
+import es_project.repository.SeguroService;
 import es_project.repository.TipoConsultaRepository;
 
 import java.time.LocalDateTime;
@@ -10,13 +13,13 @@ import java.util.ArrayList;
 public class ConsultaController {
 
     private final ConsultaRepository consultaRepository;
-    private final TipoConsultaRepository tipoConsultaRepository;
+    private PacienteRepository pacienteRepository = new PacienteRepository();
+    private TipoConsultaRepository tipoConsultaRepository = new TipoConsultaRepository();
 
     public ConsultaController(
-            ConsultaRepository consultaRepository,
-            TipoConsultaRepository tipoConsultaRepository) {
+            ConsultaRepository consultaRepository) {
         this.consultaRepository = consultaRepository;
-        this.tipoConsultaRepository = tipoConsultaRepository;
+
     }
 
     public Consulta criarConsulta(Consulta consulta) {
@@ -27,7 +30,17 @@ public class ConsultaController {
         return consultaRepository.findById(idConsulta);
     }
 
-    public ArrayList<Consulta> obterConsultas(int idPaciente) {
+    public ArrayList<Consulta> obterConsultas(int idUser) {
+        Paciente paciente = pacienteRepository.getPacienteByUserId(idUser);
+        ArrayList<Consulta> consultas = new ArrayList<Consulta>();
+        if (paciente != null) {
+            return consultaRepository.getConsultasByPaciente(paciente.getId_paciente());
+        }
+        return consultas;
+
+    }
+
+    public ArrayList<Consulta> obterConsultasPaciente(int idPaciente) {
         return consultaRepository.getConsultasByPaciente(idPaciente);
     }
 
