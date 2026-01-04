@@ -27,8 +27,8 @@ public class ConsultaController {
         return consultaRepository.findById(idConsulta);
     }
 
-    public ArrayList<Consulta> obterConsultas(int idConsulta) {
-        return consultaRepository.getConsultasByPaciente(idConsulta);
+    public ArrayList<Consulta> obterConsultas(int idPaciente) {
+        return consultaRepository.getConsultasByPaciente(idPaciente);
     }
 
     public double obterPrecoConsulta(int idTipoConsulta) {

@@ -2,13 +2,12 @@ package es_project.repository;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 import es_project.model.Exame;
 
 public class ExameRepository {
 
-    private final List<Exame> exames = new ArrayList<>();
+    private final ArrayList<Exame> exames = new ArrayList<>();
 
     public ExameRepository() {
         carregarDadosPlaceholder();
@@ -18,15 +17,15 @@ public class ExameRepository {
 
         Exame e1 = new Exame();
         e1.setId_exame(1);
-        e1.setId_tipo_exame(10);
-        e1.setId_consulta(100);
+        e1.setId_tipo_exame(1);
+        e1.setId_consulta(1);
         e1.setData_pedido(LocalDateTime.now().minusDays(5));
         e1.setEstado_resultado("PENDENTE");
 
         Exame e2 = new Exame();
         e2.setId_exame(2);
-        e2.setId_tipo_exame(11);
-        e2.setId_consulta(100);
+        e2.setId_tipo_exame(1);
+        e2.setId_consulta(1);
         e2.setData_pedido(LocalDateTime.now().minusDays(3));
         e2.setEstado_resultado("CONCLUIDO");
         e2.setExame_resultado("Normal");
@@ -34,8 +33,8 @@ public class ExameRepository {
 
         Exame e3 = new Exame();
         e3.setId_exame(3);
-        e3.setId_tipo_exame(12);
-        e3.setId_consulta(200);
+        e3.setId_tipo_exame(2);
+        e3.setId_consulta(2);
         e3.setData_pedido(LocalDateTime.now().minusDays(2));
         e3.setEstado_resultado("PENDENTE");
 
@@ -58,7 +57,7 @@ public class ExameRepository {
         return null;
     }
 
-    public String obterEstado(int idExame) {
+    public String obterExame(int idExame) {
         for (Exame e : exames) {
             if (e.getId_exame() == idExame) {
                 if (e.getEstado_resultado() == "Em espera") {
@@ -68,11 +67,11 @@ public class ExameRepository {
                 }
             }
         }
-        return null;
+        return "Não foi encontrado nenhum exame com o ID inserido";
     }
 
-    public List<Exame> findByConsulta(int idConsulta) {
-        List<Exame> resultado = new ArrayList<>();
+    public ArrayList<Exame> findByConsulta(int idConsulta) {
+        ArrayList<Exame> resultado = new ArrayList<>();
         for (Exame e : exames) {
             if (e.getId_consulta() == idConsulta) {
                 resultado.add(e);

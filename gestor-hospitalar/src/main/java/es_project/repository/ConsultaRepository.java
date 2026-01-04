@@ -18,18 +18,18 @@ public class ConsultaRepository {
 
         Consulta c1 = new Consulta();
         c1.setId_consulta(1);
-        c1.setId_tipo_consulta(10);
-        c1.setId_paciente(100);
-        c1.setId_medico(200);
+        c1.setId_tipo_consulta(1);
+        c1.setId_paciente(1);
+        c1.setId_medico(1);
         c1.setEstado_consulta("AGENDADA");
         c1.setData_inicio(LocalDateTime.now().plusDays(1));
         c1.setData_fim(LocalDateTime.now().plusDays(1).plusHours(1));
 
         Consulta c2 = new Consulta();
         c2.setId_consulta(2);
-        c2.setId_tipo_consulta(11);
-        c2.setId_paciente(101);
-        c2.setId_medico(200);
+        c2.setId_tipo_consulta(2);
+        c2.setId_paciente(1);
+        c2.setId_medico(2);
         c2.setEstado_consulta("CONCLUIDA");
         c2.setData_inicio(LocalDateTime.now().minusDays(2));
         c2.setData_fim(LocalDateTime.now().minusDays(2).plusHours(1));
