@@ -11,7 +11,7 @@ O seguinte README.md explica como clonar, configurar e executar o projeto nas ID
 - Java JDK 11+ instalado (`java -version` no terminal)
 - Git instalado (`git --version`)
 - IDE ou editor de código:
-  - Eclipse IDE for Java Developers 
+  - Eclipse IDE for Java Developers
   - VS Code com extensão **Java Extension Pack**
 - Opcional: GitHub Desktop
 
@@ -97,13 +97,7 @@ Clicar no botão Run > Run Java fornecido pela extensão.
 A aplicação deve inicializar no terminal integrado.
 ```
 
-## Login de utilizadores
+## Dados Placeholder
 
-Exemplo de utilizadores predefinidos no sistema:
-
-Nome Tipo Password
-joao Paciente 1234
-maria Médico abcd
-carlos Enfermeiro enf123
-ana Administrador Hospitalar admin123
-beatriz Farmacêutico prof123
+Está disponibilizado no documento 'DEFAULTDATA.md' os dados placeholder
+utilizados para os testes do sistema
