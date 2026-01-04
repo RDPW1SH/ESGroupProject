@@ -56,9 +56,19 @@ public class EscalaRepository {
 
     // ===== CRUD =====
 
-    public EscalaProfissional save(EscalaProfissional escala) {
+    public String save(EscalaProfissional escala) {
+
         escalas.add(escala);
-        return escala;
+        return "A escala foi criada com sucesso";
+    }
+
+    public boolean verificarDisponibilidadeId(EscalaProfissional escala) {
+        for (EscalaProfissional e : escalas) {
+            if (e.getId_profissional() == escala.getId_escala()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public ArrayList<EscalaProfissional> findAll() {

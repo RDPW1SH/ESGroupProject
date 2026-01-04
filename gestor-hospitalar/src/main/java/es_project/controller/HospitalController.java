@@ -51,7 +51,7 @@ public class HospitalController {
         return true;
     }
 
-    public ArrayList<Consulta> consultarHistoricoClinico(int idPaciente) {
+    public ArrayList<Consulta> consultarProcessoClinico(int idPaciente) {
         return consultaController.obterConsultas(idPaciente);
     }
 
@@ -67,7 +67,7 @@ public class HospitalController {
 
     /* ---------------- ESCALA ---------------- */
 
-    public EscalaProfissional criarEscala(EscalaProfissional escala) {
+    public String criarEscala(EscalaProfissional escala) {
         return escalaController.criarEscala(escala);
     }
 
@@ -97,6 +97,10 @@ public class HospitalController {
         return faturaController.listarFaturas();
     }
 
+    public double calcularValorConsulta(int idConsulta) {
+        return faturaController.calcularValorConsulta(idConsulta);
+    }
+
     /* ---------------- EXAME ---------------- */
 
     public Exame criarExame(Exame exame) {
@@ -111,8 +115,8 @@ public class HospitalController {
         return sucesso;
     }
 
-    public String obterEstadoExame(int idExame) {
-        return exameController.obterEstadoExame(idExame);
+    public String consultarEstadoExame(int idExame) {
+        return exameController.consultarEstadoExame(idExame);
     }
 
     public List<Exame> listarExamesPorConsulta(int idConsulta) {

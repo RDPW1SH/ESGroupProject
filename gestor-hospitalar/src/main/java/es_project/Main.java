@@ -201,7 +201,7 @@ public class Main {
             case 1: {
                 System.out.print("ID do paciente: ");
                 int idPaciente = Integer.parseInt(sc.nextLine());
-                ArrayList<Consulta> consultas = h.consultarHistoricoClinico(idPaciente);
+                ArrayList<Consulta> consultas = h.consultarProcessoClinico(idPaciente);
                 if (consultas.isEmpty())
                     System.out.println("Nenhuma consulta encontrada.");
                 else
@@ -274,7 +274,7 @@ public class Main {
             case 3: {
                 System.out.println("ID Exame: ");
                 int idExame = Integer.parseInt(sc.nextLine());
-                String estadoExame = h.obterEstadoExame(idExame);
+                String estadoExame = h.consultarEstadoExame(idExame);
                 System.out.println(estadoExame);
                 break;
             }
@@ -332,8 +332,9 @@ public class Main {
                 e.setData_fim(
                         LocalDate.parse(sc.nextLine(), formatter).atTime(23, 59));
 
-                h.criarEscala(e);
-                System.out.println("Escala criada com sucesso.");
+                String newEscala = h.criarEscala(e);
+
+                System.out.println(newEscala);
                 break;
             }
 
@@ -357,11 +358,9 @@ public class Main {
     private static void menuFaturas(HospitalController h, Scanner sc, Utilizador user) {
         System.out.println("\n--- Faturas ---");
         System.out.println("1. Listar todas as faturas");
-        System.out.println("2. Obter fatura de consulta");
-
-        if (user.getId_tipo_utilizador() == 1)
-
-            System.out.println("3. Pagar fatura de consulta");
+        System.out.println("2. Obter todas as faturas");
+        System.out.println("3. Pagar fatura de consulta");
+        System.out.println("4. Calcular valor da consulta");
 
         System.out.println("0. Voltar Menu");
         System.out.print("Selecionar opção: ");
@@ -407,6 +406,13 @@ public class Main {
                 int idFatura = Integer.parseInt(sc.nextLine());
                 String faturaPaga = h.marcarComoPago(idFatura);
                 System.out.print(faturaPaga);
+                break;
+            }
+            case 4: {
+                System.out.print("Insira ID da Consulta: ");
+                int idConsulta = Integer.parseInt(sc.nextLine());
+                double valorFinalFatura = h.calcularValorConsulta(idConsulta);
+                System.out.print("O valor da fatura é: " + valorFinalFatura);
                 break;
             }
             case 0: {

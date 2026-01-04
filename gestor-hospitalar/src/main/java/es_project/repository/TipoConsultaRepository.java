@@ -17,7 +17,7 @@ public class TipoConsultaRepository {
         /* Minutos */
         t1.setDuracao_media(30);
         /* Euros */
-        t1.setValor_base(20);
+        t1.setValor_base(20.0);
 
         TipoConsulta t2 = new TipoConsulta();
         t2.setId_tipo_consulta(2);
@@ -25,10 +25,19 @@ public class TipoConsultaRepository {
         /* Minutos */
         t2.setDuracao_media(45);
         /* Euros */
-        t2.setValor_base(30);
+        t2.setValor_base(30.0);
 
         tipos.add(t1);
         tipos.add(t2);
+    }
+
+    public TipoConsulta findById(int idTipoConsulta) {
+        for (TipoConsulta t : tipos) {
+            if (t.getId_tipo_consulta() == idTipoConsulta) {
+                return t;
+            }
+        }
+        return null;
     }
 
     public double getPreco(int idTipoConsulta) {

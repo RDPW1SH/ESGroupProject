@@ -30,8 +30,8 @@ public class ExameController {
         return tipoExameRepository.getTipo_exame(idTipoExame);
     }
 
-    public String obterEstadoExame(int idExame) {
-        return exameRepository.obterEstado(idExame);
+    public String consultarEstadoExame(int idExame) {
+        return exameRepository.obterExame(idExame);
     }
 
     public boolean atualizarResultadoExame(int idExame, String resultado) {
